@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+    <body>
+  <h1>LOGIN </h1>
+    <div class="container">
+      <h2>LOGIN</h2>
+      <form name="submit-to-google-sheet">
+        <form id ="loginform">
+          <div class="form-group">
+          <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            </div>
+        <div class="form-group">
+          <label for="email">EMAIL:</label>
+          <input type="text" id="email" name="email" required />
+          <p id="emailError"></p>
+        </div>
+        <div class="form-group">
+          <label for="password">PASSWORD:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <button class="submit">login</button>
+          <span id ="success"></span>
+          </form>
+          </div>
+          
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJp13-dsl-s1aTBvmO4U4zHLQB9oU7YkYxu159VBKMCZNDH4Zu2GS4C8kgRSulAuTJ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  const success=document.getElementById('success');
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response =>{alert('gffghghhcgh');
+form.reset();
+
+})
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
